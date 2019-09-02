@@ -4,7 +4,7 @@ import React from 'react';
 import NoteFeed from '../components/NoteFeed';
 
 const Feed = props => {
-  return <NoteFeed />;
+  return <NoteFeed navigation={props.navigation} />;
 };
 
 Feed.navigationOptions = {

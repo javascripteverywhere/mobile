@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, View, Text } from 'react-native';
+import { FlatList, View, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 
 import Note from './Note';
@@ -31,7 +31,7 @@ const Separator = styled.View`
   background-color: #ced0ce;
 `;
 
-const NoteFeed = () => {
+const NoteFeed = props => {
   return (
     <View>
       <FlatList
@@ -39,9 +39,17 @@ const NoteFeed = () => {
         keyExtractor={({ id }) => id.toString()}
         ItemSeparatorComponent={() => <Separator />}
         renderItem={({ item }) => (
-          <FeedView>
-            <Note note={item} />
-          </FeedView>
+          <TouchableOpacity
+            onPress={() =>
+              props.navigation.navigate('Note', {
+                id: item.id
+              })
+            }
+          >
+            <FeedView>
+              <Note note={item} />
+            </FeedView>
+          </TouchableOpacity>
         )}
       />
     </View>
