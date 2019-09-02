@@ -2,6 +2,8 @@ import React from 'react';
 import { FlatList, View, Text } from 'react-native';
 import styled from 'styled-components/native';
 
+import Note from './Note';
+
 // our dummy data
 const notes = [
   { id: 0, content: 'Giant Steps' },
@@ -23,15 +25,22 @@ const FeedView = styled.View`
   margin-bottom: 10px;
 `;
 
+const Separator = styled.View`
+  height: 1;
+  width: 100%;
+  background-color: #ced0ce;
+`;
+
 const NoteFeed = () => {
   return (
     <View>
       <FlatList
         data={notes}
         keyExtractor={({ id }) => id.toString()}
+        ItemSeparatorComponent={() => <Separator />}
         renderItem={({ item }) => (
           <FeedView>
-            <Text>{item.content}</Text>
+            <Note note={item} />
           </FeedView>
         )}
       />
