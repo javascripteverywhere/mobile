@@ -1,23 +1,20 @@
 import React from 'react';
-import { View, Button, Text } from 'react-native';
-import * as SecureStore from 'expo-secure-store';
+import { View, Button, Text, AsyncStorage } from 'react-native';
 import { Mutation, ApolloConsumer } from 'react-apollo';
 import { gql } from 'apollo-boost';
 
 import UserForm from '../components/UserForm';
 import Loading from '../components/Loading';
 
-const SIGNIN_USER = gql`
-  mutation signIn($email: String, $password: String!) {
-    signIn(email: $email, password: $password)
+const SIGNUP_USER = gql`
+  mutation signUp($email: String!, $username: String!, $password: String!) {
+    signUp(email: $email, username: $username, password: $password)
   }
 `;
 
-const SignIn = props => {
-  // store the token with a key value of `token`
-  // after the token is stored navigate to the app's main screen
-  const storeToken = token => {
-    SecureStore.setItemAsync('token', token).then(
+const SignUp = props => {
+  const storeToken = async token => {
+    await AsyncStorage.setItem('token', token).then(
       props.navigation.navigate('App')
     );
   };
@@ -26,26 +23,25 @@ const SignIn = props => {
     // Wrap our mutation in ApolloConsumer to give direct access to `client`
     <ApolloConsumer>
       {client => (
-        // call our GraphQL Mutation
+        // render our GraphQL Mutation
         <Mutation
-          mutation={SIGNIN_USER}
-          // pass the token value to our signInAsync function
-          onCompleted={({ signIn }) => {
-            storeToken(signIn);
+          mutation={SIGNUP_USER}
+          onCompleted={({ signUp }) => {
+            storeToken(signUp);
           }}
           onError={err => null} // handled below
         >
-          {(signIn, { loading, error }) => {
+          {(signUp, { loading, error }) => {
             // if loading, return a loading indicator
             if (loading) return <Loading />;
-            // if there is an error, display a message to the user & the form
+            // if there is an error, display a message to the user
             if (error)
               return (
                 <View>
                   <Text>Error Signing In</Text>
                   <UserForm
                     action={signIn}
-                    formType="signIn"
+                    formType="signUp"
                     navigation={props.navigation}
                   />
                 </View>
@@ -53,8 +49,8 @@ const SignIn = props => {
             // our form component
             return (
               <UserForm
-                action={signIn}
-                formType="signIn"
+                action={signUp}
+                formType="signUp"
                 navigation={props.navigation}
               />
             );
@@ -65,8 +61,8 @@ const SignIn = props => {
   );
 };
 
-SignIn.navigationOptions = {
-  title: 'Sign In'
+SignUp.navigationOptions = {
+  title: 'Register'
 };
 
-export default SignIn;
+export default SignUp;
