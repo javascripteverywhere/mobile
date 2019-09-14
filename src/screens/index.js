@@ -3,7 +3,8 @@ import { Text, View, ScrollView, Button } from 'react-native';
 import {
   createBottomTabNavigator,
   createAppContainer,
-  createStackNavigator
+  createStackNavigator,
+  createSwitchNavigator
 } from 'react-navigation';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -11,6 +12,17 @@ import Feed from './feed';
 import Favorites from './favorites';
 import MyNotes from './mynotes';
 import Note from './note';
+import AuthLoading from './authloading';
+import SignIn from './signin';
+import Settings from './settings';
+
+const AuthStack = createStackNavigator({
+  SignIn: SignIn
+});
+
+const SettingsStack = createStackNavigator({
+  Settings: Settings
+});
 
 const FeedStack = createStackNavigator({
   Feed: Feed,
@@ -54,7 +66,27 @@ const TabNavigator = createBottomTabNavigator({
         <MaterialCommunityIcons name="star" size={24} color={tintColor} />
       )
     }
+  },
+  Settings: {
+    screen: SettingsStack,
+    navigationOptions: {
+      tabBarLabel: 'Settings',
+      tabBarIcon: ({ tintColor }) => (
+        <MaterialCommunityIcons name="settings" size={24} color={tintColor} />
+      )
+    }
   }
 });
 
-export default createAppContainer(TabNavigator);
+const SwitchNavigator = createSwitchNavigator(
+  {
+    AuthLoading: AuthLoading,
+    Auth: AuthStack,
+    App: TabNavigator
+  },
+  {
+    initialRouteName: 'AuthLoading'
+  }
+);
+
+export default createAppContainer(SwitchNavigator);
