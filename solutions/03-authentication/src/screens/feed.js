@@ -31,7 +31,7 @@ const Feed = props => {
         // if the data is loading, our app will display a loading indicator
         if (loading) return <Loading />;
         // if there is an error fetching the data, display an error message
-        if (error) return <Text>`Error! ${error.message}`</Text>;
+        if (error) return <Text>Error loading notes</Text>;
         // if the query is successful and there are notes, return the feed of notes
         return <NoteFeed notes={data.notes} navigation={props.navigation} />;
       }}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-const Note = () => {
+const NoteScreen = () => {
   return (
     <View style={{ padding: 10 }}>
       <Text>This is a note!</Text>
@@ -9,4 +9,4 @@ const Note = () => {
   );
 };
 
-export default Note;
+export default NoteScreen;

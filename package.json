@@ -4,13 +4,13 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web",
     "eject": "expo eject"
   },
   "dependencies": {
-    "apollo-boost": "0.4.4",
+    "apollo-boost": "^0.4.4",
     "date-fns": "2.0.1",
     "expo": "34.0.1",
+    "expo-secure-store": "^6.0.0",
     "graphql": "14.5.4",
     "react": "16.8.3",
     "react-apollo": "3.0.1",

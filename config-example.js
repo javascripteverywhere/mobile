@@ -5,7 +5,10 @@ import Constants from 'expo-constants';
 
 // get the localhost ip address at runtime using the Expo manifest
 // this enables both simulator and physical device debugging with our local api
-const localhost = Constants.manifest.debuggerHost.split(':').shift();
+let localhost;
+if (Constants.manifest.debuggerHost) {
+  localhost = Constants.manifest.debuggerHost.split(':').shift();
+}
 
 // set environment variables
 const ENV = {
@@ -23,7 +26,7 @@ const getEnvVars = (env = Constants.manifest.releaseChannel) => {
   // __DEV__ is set to false when our app is published
   if (__DEV__) {
     return ENV.dev;
-  } else {
+  } else if (env === 'prod') {
     return ENV.prod;
   }
 };

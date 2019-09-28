@@ -11,7 +11,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Feed from './feed';
 import Favorites from './favorites';
 import MyNotes from './mynotes';
-import Note from './note';
+import NoteScreen from './note';
 import AuthLoading from './authloading';
 import SignIn from './signin';
 import SignUp from './signup';
@@ -28,17 +28,17 @@ const SettingsStack = createStackNavigator({
 
 const FeedStack = createStackNavigator({
   Feed: Feed,
-  Note: Note
+  Note: NoteScreen
 });
 
 const MyStack = createStackNavigator({
   MyNotes: MyNotes,
-  Note: Note
+  Note: NoteScreen
 });
 
 const FavStack = createStackNavigator({
   Favorites: Favorites,
-  Note: Note
+  Note: NoteScreen
 });
 
 const TabNavigator = createBottomTabNavigator({

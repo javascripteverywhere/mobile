@@ -2,7 +2,7 @@ import React from 'react';
 import { FlatList, View, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 
-import Note from './Note';
+import NoteComponent from './Note';
 
 // our dummy data
 // const notes = [
@@ -47,7 +47,7 @@ const NoteFeed = props => {
             }
           >
             <FeedView>
-              <Note note={item} preview={true} />
+              <NoteComponent note={item} preview={true} />
             </FeedView>
           </TouchableOpacity>
         )}

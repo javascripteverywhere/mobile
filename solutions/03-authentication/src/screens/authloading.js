@@ -3,7 +3,7 @@ import * as SecureStore from 'expo-secure-store';
 
 import Loading from '../components/Loading';
 
-const AuthLoadingScreen = props => {
+const AuthLoading = props => {
   const checkLoginState = async () => {
     // retrieve the value of the token
     const userToken = await SecureStore.getItemAsync('token');
@@ -20,4 +20,4 @@ const AuthLoadingScreen = props => {
   return <Loading />;
 };
 
-export default AuthLoadingScreen;
+export default AuthLoading;
