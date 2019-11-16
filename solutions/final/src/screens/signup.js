@@ -40,7 +40,7 @@ const SignUp = props => {
                 <View>
                   <Text>Error Signing In</Text>
                   <UserForm
-                    action={signIn}
+                    action={signUp}
                     formType="signUp"
                     navigation={props.navigation}
                   />
