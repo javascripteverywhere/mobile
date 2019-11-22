@@ -1,11 +1,8 @@
 import React from 'react';
 import { Text, View, ScrollView, Button } from 'react-native';
-import {
-  createBottomTabNavigator,
-  createAppContainer,
-  createStackNavigator,
-  createSwitchNavigator
-} from 'react-navigation';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import Feed from './feed';

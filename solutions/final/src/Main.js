@@ -2,7 +2,7 @@ import React from 'react';
 import Screens from './screens/index';
 // import the Apollo libraries
 import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from 'react-apollo';
+import { ApolloProvider } from '@apollo/react-hooks';
 // import SecureStore for retrieving the token value
 import * as SecureStore from 'expo-secure-store';
 
