@@ -1,10 +1,11 @@
 import React from 'react';
 import { Text, View, ScrollView, Button } from 'react-native';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { createStackNavigator } from 'react-navigation-stack';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
+// import screen components
 import Feed from './feed';
 import Favorites from './favorites';
 import MyNotes from './mynotes';
