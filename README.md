@@ -34,6 +34,10 @@ In the interest of fostering an open and welcoming environment, I pledge to maki
 
 This project pledges to follow the [Contributor's Covenant](http://contributor-covenant.org/version/1/4/).
 
+## Photo Attribution
+
+This project includes the photo "Hello World," by [Wendell Oskay](https://www.flickr.com/photos/oskay/472097903), licensed under [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/).
+
 ## License
 
 Copyright 2019 Adam D. Scott
