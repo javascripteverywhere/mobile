@@ -47,7 +47,7 @@ const NoteFeed = props => {
             }
           >
             <FeedView>
-              <NoteComponent note={item} preview={true} />
+              <NoteComponent note={item} />
             </FeedView>
           </TouchableOpacity>
         )}
