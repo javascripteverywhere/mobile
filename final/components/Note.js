@@ -8,7 +8,7 @@ const NoteView = styled.ScrollView`
   padding: 10px;
 `;
 
-const NoteComponent = ({ note, preview }) => {
+const NoteComponent = ({ note }) => {
   return (
     <NoteView>
       <Text>
