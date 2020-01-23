@@ -1,8 +1,7 @@
 import React from 'react';
 import { View, Button, Text } from 'react-native';
 import * as SecureStore from 'expo-secure-store';
-import { useMutation } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
+import { useMutation, gql } from '@apollo/client';
 
 import UserForm from '../components/UserForm';
 import Loading from '../components/Loading';

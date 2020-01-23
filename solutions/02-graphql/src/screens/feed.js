@@ -1,8 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 // import our Apollo libraries
-import { useQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
+import { useQuery, gql } from '@apollo/client';
 
 import NoteFeed from '../components/NoteFeed';
 import Loading from '../components/Loading';
