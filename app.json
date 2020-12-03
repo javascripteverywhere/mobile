@@ -2,21 +2,32 @@
   "expo": {
     "name": "Notedly",
     "slug": "notedly-mobile",
-    "description": "",
+    "description": "An example React Native app",
     "privacy": "public",
-    "sdkVersion": "33.0.0",
-    "platforms": ["ios", "android", "web"],
-    "version": "1.0.14",
+    "version": "1.0.0",
+    "platforms": ["ios", "android"],
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/custom/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./assets/custom/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#4A90E2"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 1500
     },
-    "assetBundlePatterns": ["**/*"]
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/custom/icon.png",
+        "backgroundColor": "#4A90E2"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
   }
 }
